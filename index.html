@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Neva Birthday!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="console">
+        <div class="console-bezel">
+            <!-- Dekorasi lucu -->
+
+            <!-- Screen 1: Welcome -->
+            <div class="crt-screen active" id="screen1">
+                <div class="crt-console-screen">
+                    <span class="crt-emoji">🎂</span>
+                    <div class="crt-main-text">
+                        Selamat Ulang Tahun, <br>Neva Rahma Nazilla<br>
+                    </div>
+                    <div class="crt-scanlines"></div>
+                    <div class="crt-glow"></div>
+                </div>
+                <div class="console-menu main-menu">
+                    <button class="console-btn main-btn" onclick="showScreen('screen2')">
+                        <span class="btn-emoji">💌</span>
+                        Pesan
+                    </button>
+                    <button class="console-btn main-btn" onclick="showScreen('screen3')">
+                        <span class="btn-emoji">📸</span>
+                        Photobox
+                    </button>
+                    <button class="console-btn main-btn" onclick="showScreen('screen4')">
+                        <span class="btn-emoji">🎵</span>
+                        Lagu
+                    </button>
+                    <button class="console-btn main-btn" onclick="showScreen('screenTetris')">
+                        <span class="btn-emoji">🕹️</span>
+                        Game
+                    </button>
+                </div>
+            </div>
+            <!-- Screen 2: Message -->
+            <div class="crt-screen" id="screen2">
+                <div class="crt-console-message">
+                    <span style="font-size:1.2rem;display:block;margin-bottom:10px;">💚</span>
+                    <span id="birthdayMessage"></span>
+                    <div class="crt-scanlines"></div>
+                    <div class="crt-glow"></div>
+                </div>
+                <div class="console-menu">
+                    <button class="console-btn" onclick="showScreen('screen1')">Kembali ke Menu</button>
+                </div>
+            </div>
+            <!-- Screen 3: Photobox -->
+            <div class="crt-screen" id="screen3">
+                <div class="crt-title">Photobox🎞️</div>
+                <div class="photobox-frame" id="photoboxFrame">
+                    <img class="photobox-photo" id="photoboxPhoto" src="" alt="Photobox Neva">
+                    <div class="photobox-flash" id="photoboxFlash"></div>
+                    <div class="photobox-caption" id="photoboxCaption"></div>
+                </div>
+                <div class="photobox-nav">
+                    <button class="photobox-btn" id="photoPrev">&lt; Prev</button>
+                    <button class="photobox-btn" id="photoNext">Next &gt;</button>
+                </div>
+                <div class="console-menu">
+                    <button class="console-btn" onclick="showScreen('screen1')">Kembali ke Menu</button>
+                </div>
+            </div>
+            <!-- Screen 4: Audio -->
+            <div class="crt-screen" id="screen4">
+                <div class="crt-title">Lagu Relate 🎵</div>
+                <div class="spotify-player">
+                    <img class="spotify-cover" src="images/coverlagu.webp" alt="cover">
+                    <div class="spotify-title">Fallin Love Again</div>
+                    <div class="spotify-artist">By Rinaldy</div>
+                    <div class="spotify-progress" id="spotifyProgress">
+                        <div class="spotify-progress-bar" id="spotifyProgressBar"></div>
+                    </div>
+                    <div class="spotify-time">
+                        <span id="spotifyCurrent">0:00</span>
+                        <span id="spotifyDuration">0:00</span>
+                    </div>
+                    <div class="spotify-controls">
+                        <button class="spotify-play" id="spotifyPlayBtn">
+                            <span id="spotifyPlayIcon">&#9654;</span>
+                        </button>
+                    </div>
+                    <audio id="audio" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae0b2.mp3"></audio>
+                </div>
+                <div class="console-menu">
+                    <button class="console-btn" onclick="showScreen('screen1')">Kembali ke Menu</button>
+                </div>
+            </div>
+            <!-- Screen 5: Tetris Game -->
+            <div class="crt-screen" id="screenTetris" style="overflow:auto;">
+                <div class="crt-title">Tetris Modern 🎮</div>
+                <div class="tetris-container" style="position:relative;">
+                    <div class="tetris-info">
+                        Next:
+                        <div class="tetris-next" id="tetrisNext"></div>
+                    </div>
+                    <div class="tetris-score" id="tetrisScore">Score: 0</div>
+                    <div class="tetris-board" id="tetrisBoard" style="position:relative;">
+                        <div id="tetrisGameOverMsg" class="tetris-gameover-msg">
+                            Wuuu kalahh, tapi gapapa kamu tetap menang dihati aku
+                        </div>
+                    </div>
+                    <div class="tetris-btns">
+                        <button class="tetris-btn" onclick="tetrisRestart()">Restart</button>
+                        <button class="tetris-btn" onclick="showScreen('screen1')">Menu</button>
+                    </div>
+                    <div class="tetris-touch-controls">
+                        <div class="tetris-touch-btn" id="tetrisLeft">&#8592;</div>
+                        <div class="tetris-touch-btn" id="tetrisDown">&#8595;</div>
+                        <div class="tetris-touch-btn" id="tetrisRight">&#8594;</div>
+                        <div class="tetris-touch-btn" id="tetrisRotate">&#8635;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Konsol bawah -->
+        <div class="console-controls">
+            <div class="console-knob"></div>
+            <div class="console-knob"></div>
+            <div class="console-led"></div>
+        </div>
+    </div>
+    <script src="main.js">
+
+    </script>
+</body>
+
+</html>
