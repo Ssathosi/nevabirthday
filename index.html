@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ketik PIN</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f6f0e8, #e8e3dc);
+      color: #333;
+      font-family: 'Press Start 2P', cursive;
+      overflow: hidden;
+      animation: fadeIn 1.5s ease-in-out forwards;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.02); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #cbbeb5;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #444;
+      opacity: 0;
+      animation: fadeText 1.5s ease forwards;
+    }
+
+    @keyframes fadeText {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    input {
+      padding: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      border: 1px solid #b5aaa0;
+      border-radius: 6px;
+      text-align: center;
+      background: #fff;
+      color: #333;
+      outline: none;
+      width: 180px;
+      margin-bottom: 15px;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 8px 18px;
+      font-family: inherit;
+      font-size: 12px;
+      background: #b5aaa0;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    button:hover {
+      background: #8f8175;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .error {
+      color: #c25a5a;
+      margin-top: 10px;
+      font-size: 10px;
+      display: none;
+      animation: shake 0.2s 3;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KETIK PIN UNTUK LANJUT</h1>
+    <input type="password" id="pinInput" placeholder="Ketik PIN" maxlength="8">
+    <button onclick="checkPIN()">Buka</button>
+    <div id="errorMsg" class="error">PIN Salah, coba lagi</div>
+  </div>
+
+  <script>
+    function checkPIN() {
+      const pin = document.getElementById("pinInput").value;
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (pin === "28082006") {
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = "index.html"; 
+        }, 1000);
+      } else {
+        errorMsg.style.display = "block";
+        errorMsg.style.animation = "shake 0.2s 3";
+        setTimeout(() => {
+          errorMsg.style.animation = "";
+        }, 600);
+      }
+    }
+  </script>
+</body>
+</html>
