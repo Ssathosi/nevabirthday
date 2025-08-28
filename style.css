@@ -18,7 +18,7 @@ border-radius: 36px 36px 24px 24px/48px 48px 24px 24px;
 box-shadow: 0 0 40px rgba(248, 200, 220, 0.4), 0 0 0 20px #fff, 0 0 0 28px #f8c8dc;
 width: 430px;
 max-width: 98vw;
-min-height: 650px;
+min-height: 550px;
 padding: 0;
 overflow: hidden;
 display: flex;
@@ -960,4 +960,5 @@ transform: scale(0.97);
 .crt-console-message .crt-glow {
   pointer-events: none;
 }
+
 
